@@ -1,0 +1,66 @@
+---
+import Container from "./Container.astro";
+---
+<header class="header">
+    <div class="header__inner">
+        <ul class="header__items">
+            <li class="header__item">
+                <a href="#">About us</a>
+            </li>
+            <li class="header__item">
+                <a href="#">Services</a>
+            </li>
+            <li class="header__item">
+                <a href="#">Service areas</a>
+            </li>
+        </ul>
+        <img src="/logo.svg" alt="overscape logo">
+        <ul class="header__items">
+            <li class="header__item">
+                <a href="#">Gallery</a>
+            </li>
+            <li class="header__item">
+                <a href="#">Testimonials</a>
+            </li>
+            <li class="header__item">
+                <a href="#">Contact us</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<style>
+    .header {
+        max-width: 1204px;
+        margin-inline: auto;
+    }
+
+    .header__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header__items {
+        display: flex;
+        align-items: center;
+        gap: 46px;
+    }
+
+    .header__item > a {
+        color: #FFF;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+
+        opacity: .8;
+        transition: opacity .2s ease;
+    }
+
+    .header__item > a:hover {
+        opacity: 1;
+    }
+
+    .header__item > a:active {
+        opacity: .8;
+    }
+</style>

@@ -1,0 +1,24 @@
+---
+interface Props {
+    title: string;
+    description: string;
+}
+
+const {  } = Astro.props;
+---
+
+<div class="faq__item" data-js-faq>
+    <div class="faq__info">
+        <p class="faq__title" data-js-faq-title>
+            What is lorem ipsum?
+        </p>
+        <span class="faq__description" data-js-faq-description>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five.
+                        </span>
+    </div>
+    <button class="faq__button active" data-js-faq-button>
+        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.43506 13.0433H20.6524M13.0438 5.43457V20.652" stroke="#1971F5" stroke-width="2.17391" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</div>

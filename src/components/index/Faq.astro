@@ -1,0 +1,235 @@
+---
+
+---
+
+<section class="faq">
+    <div class="container">
+        <div class="faq__inner">
+            <h5 class="title">
+                Frequently Asked <span>Questions</span>
+            </h5>
+            <div class="faq__items">
+                <div class="faq__item active" data-js-faq>
+                    <div class="faq__info">
+                        <p class="faq__title" data-js-faq-title>
+                            What is lorem ipsum?
+                        </p>
+                        <span class="faq__description" data-js-faq-description>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five.
+                        </span>
+                    </div>
+                    <button class="faq__button" data-js-faq-button>
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.43506 13.0433H20.6524M13.0438 5.43457V20.652" stroke="#1971F5" stroke-width="2.17391" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="faq__item" data-js-faq>
+                    <div class="faq__info">
+                        <p class="faq__title" data-js-faq-title>
+                            What is lorem ipsum?
+                        </p>
+                        <span class="faq__description" data-js-faq-description>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five.
+                        </span>
+                    </div>
+                    <button class="faq__button active" data-js-faq-button>
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.43506 13.0433H20.6524M13.0438 5.43457V20.652" stroke="#1971F5" stroke-width="2.17391" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="faq__item" data-js-faq>
+                    <div class="faq__info">
+                        <p class="faq__title" data-js-faq-title>
+                            What is lorem ipsum?
+                        </p>
+                        <span class="faq__description" data-js-faq-description>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five.
+                        </span>
+                    </div>
+                    <button class="faq__button active" data-js-faq-button>
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.43506 13.0433H20.6524M13.0438 5.43457V20.652" stroke="#1971F5" stroke-width="2.17391" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="faq__item" data-js-faq>
+                    <div class="faq__info">
+                        <p class="faq__title" data-js-faq-title>
+                            What is lorem ipsum?
+                        </p>
+                        <span class="faq__description" data-js-faq-description>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five.
+                        </span>
+                    </div>
+                    <button class="faq__button active" data-js-faq-button>
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.43506 13.0433H20.6524M13.0438 5.43457V20.652" stroke="#1971F5" stroke-width="2.17391" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    class FaqItem {
+        private item: HTMLElement;
+        private title: HTMLElement;
+        private description: HTMLElement;
+
+        constructor(item: HTMLElement) {
+            this.item = item;
+            this.title = this.item.querySelector("[data-js-faq-title]") as HTMLElement;
+            this.description = this.item.querySelector("[data-js-faq-description]") as HTMLElement;
+        }
+
+        close() {
+            const top = this.title.offsetTop;
+            const height = this.title.offsetHeight;
+            const paddingBottom = 40;
+
+            this.item.classList.remove("active");
+            this.item.style.height = `${top + height + paddingBottom}px`;
+        }
+
+        open() {
+            const top = this.description.offsetTop;
+            const height = this.description.offsetHeight;
+            const paddingBottom = 40;
+
+            this.item.classList.add("active");
+            this.item.style.height = `${top + height + paddingBottom}px`;
+        }
+    }
+
+    const faqItems = document.querySelectorAll("[data-js-faq]");
+
+    for (const item of faqItems) {
+        const faqItem = new FaqItem(item as HTMLElement);
+        faqItem.close();
+
+        const button = item.querySelector("[data-js-faq-button]") as HTMLElement;
+
+        button.addEventListener("click", () => {
+            if (item.classList.contains("active")) {
+                faqItem.close();
+            } else {
+                faqItem.open();
+            }
+        })
+    }
+</script>
+
+<style>
+    .faq {
+        padding-block: var(--section-py);
+    }
+
+    .container {
+        max-width: 996px;
+        margin-inline: auto;
+    }
+
+    .faq__items {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 70px;
+    }
+
+    .faq__item {
+        position: relative;
+        
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        background-color: #F7F7F7;
+        padding: 40px 109px 40px 40px;
+        border: 1px solid #E6E6E6;
+        border-radius: 12px;
+
+        overflow: hidden;
+        transition: height .3s ease;
+    }
+
+    .faq__item.active .faq__button {
+        background-color: var(--primary-color);
+    }
+
+    .faq__item.active .faq__button:hover {
+        background-color: var(--primary-color-hover);
+    }
+
+    .faq__item.active .faq__button > svg {
+        transform: rotate(45deg);
+    }
+
+    .faq__item.active .faq__button > svg path {
+        stroke: #FFF;
+    }
+
+    .faq__item.active .faq__description {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .faq__info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .faq__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .faq__description {
+        color: var(--subtitle-color);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: .2s ease;
+    }
+
+    .faq__button {
+        position: absolute;
+        top: 28px;
+        right: 28px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: transparent;
+        min-width: 50px;
+        height: 50px;
+        border: 1px solid var(--primary-color);
+        border-radius: 50%;
+
+        transition: background-color .2s ease;
+    }
+
+    .faq__button > svg {
+        transition: transform .2s ease;
+    }
+
+    .faq__button > svg path {
+        transition: fill .2s ease;
+    }
+
+    .faq__button:hover {
+        background-color: var(--primary-color-hover);
+    }
+
+    .faq__button:hover > svg path {
+        stroke: #FFF;
+    }
+
+    .faq__button:active {
+        background-color: var(--primary-color-active);
+    }
+</style>

@@ -1,0 +1,109 @@
+---
+import Container from "../ui/Container.astro";
+import Link from "../ui/Link.astro";
+---
+
+<section class="trust">
+    <Container>
+        <div class="trust__inner">
+            <h2 class="title trust__title">
+                Trusted Builders with <span>Over 20 Years</span> of Experience
+            </h2>
+            <div class="trust__info">
+                <div class="trust__info-top">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        <br />
+                        <br />
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.
+                    </p>
+                    <Link variant="outline" href="#!">More About Us</Link>
+                </div>
+                <div class="trust__info-bottom">
+                    <div>
+                        <p>100%</p>
+                        <span>Client Satisfaction</span>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>300+</p>
+                        <span>Completed Projects</span>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>20+</p>
+                        <span>Years of Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<style>
+    .trust {
+        background-image: url("/trust-illustration.png");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+    }
+
+    .trust__inner {
+        display: grid;
+        grid-template-columns: 486px 1fr;
+        gap: 142px;
+
+        padding-block: var(--section-py);
+    }
+
+    .trust__title {
+        text-align: left;
+    }
+
+    .trust__info {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+    }
+
+    .trust__info-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .trust__info-top p {
+        color: var(--subtitle-color);
+    }
+
+    .trust__info-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+
+    }
+
+    .trust__info-bottom > hr {
+        background-color: var(--divider-color);
+        width: 1px;
+        height: 100%;
+    }
+
+    .trust__info-bottom div {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .trust__info-bottom div > p {
+        font-size: 43px;
+        font-weight: 600;
+        line-height: 105%;
+        letter-spacing: -4%;
+    }
+
+    .trust__info-bottom div > span {
+        color: var(--subtitle-color);
+    }
+</style>

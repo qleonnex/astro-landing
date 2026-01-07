@@ -1,0 +1,144 @@
+---
+interface Props {
+    className?: string;
+    variant?: "base" | "outline";
+    color?: "primary" | "secondary";
+    hasIcon?: boolean;
+    isOnlyIcon?: boolean;
+    href: string;
+}
+
+const {
+    variant = "base",
+    color = "primary",
+    hasIcon = false,
+    isOnlyIcon = false,
+    href
+} = Astro.props;
+
+const classOfVariant = {
+    base: "base",
+    outline: "outline",
+}[variant]
+
+const classOfColor = {
+    primary: "primary",
+    secondary: "secondary"
+}[color]
+---
+
+<a
+    class:list={[
+        "link",
+        classOfVariant,
+        classOfColor,
+        {"only-icon": isOnlyIcon}
+    ]}
+    href={href}
+>
+    <slot />
+    {hasIcon && <div class="el"></div>}
+</a>
+
+
+
+<style>
+    .link {
+        padding: 19px 30px;
+        border-radius: 130px;
+
+        color: #FFF;
+        font-weight: 600;
+        font-size: 20px;
+        transition: background-color .2s ease;
+    }
+
+    .link.only-icon {
+        background: none !important;
+        padding: 0 !important;
+    }
+
+    .link.base.primary {
+        background-color: var(--primary-color);
+    }
+
+    .link.base.primary:hover {
+        background-color: var(--primary-color-hover);
+    }
+
+    .link.base.primary:active {
+        background-color: var(--primary-color-active);
+    }
+
+    .link.base.secondary {
+        background-color: rgba(25, 113, 245, 0.15);
+        color: var(--primary-color);
+        border: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    .link.base.secondary:hover {
+        background-color: rgba(25, 113, 245, 0.2);
+    }
+
+    .link.base.secondary:active {
+        background-color: rgba(25, 113, 245, 0.3);
+    }
+
+    .link.base.secondary > .el {
+        background-color: var(--primary-color);
+        background-image: url("/arrow-up-w.svg");
+    }
+
+    .link.outline.secondary {
+        border: 1px solid #FFF;
+        transition: background-color .2s ease;
+    }
+
+    .link.outline.primary {
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+
+    .link.outline.primary > .el {
+        background-color: var(--primary-color);
+        background-image: url("/arrow-up-w.svg");
+    }
+
+    .link.outline.primary:hover {
+        background-color: rgba(25, 113, 245, 0.05);
+    }
+
+    .link.outline:hover {
+        background-color: rgba(255, 255, 255, .1);
+    }
+
+    .link.outline:active {
+        background-color: transparent !important;
+    }
+
+    .link:has(> .el) {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        padding: 13px 15px 13px 30px;
+    }
+
+    .link > .el {
+        display: flex;
+        background-color: #FFF;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+
+        background-image: url("/arrow-up.svg");
+        background-size: 52px;
+        background-position: center;
+
+        transition: .3s ease-out;
+    }
+
+    .link:has(> .el):hover > .el {
+        background-position: -469% 565%;
+    }
+</style>

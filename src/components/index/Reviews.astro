@@ -1,0 +1,324 @@
+---
+import Container from "../ui/Container.astro";
+import "swiper/css";
+---
+
+<section class="reviews">
+    <Container>
+        <div class="reviews__inner">
+            <div class="reviews__left">
+                <h3 class="reviews__title title">
+                    Hear What Our <span>Clients Say</span>
+                </h3>
+
+                <div class="reviews__clients-group">
+                    <div class="reviews__clients">
+                        {Array.from({ length: 4 }).map((_, i) => (
+                            <img
+                                class="reviews__client"
+                                data-client={i + 1}
+                                src={`/client-${i + 1}.png`}
+                                alt={`client-${i + 1}`}
+                            />
+                        ))}
+                    </div>
+                    <p class="reviews__clients-count">138+ Clients Worldwide</p>
+                </div>
+            </div>
+
+            <div class="reviews__right swiper">
+                <div class="gradient"></div>
+                <div class="gradient right"></div>
+                <div class="swiper-wrapper">
+                    <div class="reviews__review swiper-slide">
+                        <div class="reviews__review-text">
+                            <p class="reviews__review-title">Exceptional Workmanship!</p>
+                            <span class="reviews__review-description">
+                            “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release”.
+                        </span>
+                        </div>
+                        <div class="reviews__review-bottom">
+                            <div class="reviews__user">
+                                <img src="/client-1.png" class="reviews__user-avatar" alt="client" />
+                                <div class="reviews__user-info">
+                                    <p class="reviews__user-name">Sarah Johnson</p>
+                                    <span class="reviews__user-role">House Renovation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__review swiper-slide">
+                        <div class="reviews__review-text">
+                            <p class="reviews__review-title">Exceptional Workmanship!</p>
+                            <span class="reviews__review-description">
+                            “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release”.
+                        </span>
+                        </div>
+                        <div class="reviews__review-bottom">
+                            <div class="reviews__user">
+                                <img src="/client-2.png" class="reviews__user-avatar" alt="client" />
+                                <div class="reviews__user-info">
+                                    <p class="reviews__user-name">Sarah Johnson</p>
+                                    <span class="reviews__user-role">House Renovation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__review swiper-slide">
+                        <div class="reviews__review-text">
+                            <p class="reviews__review-title">Exceptional Workmanship!</p>
+                            <span class="reviews__review-description">
+                            “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release”.
+                        </span>
+                        </div>
+                        <div class="reviews__review-bottom">
+                            <div class="reviews__user">
+                                <img src="/client-3.png" class="reviews__user-avatar" alt="client" />
+                                <div class="reviews__user-info">
+                                    <p class="reviews__user-name">Sarah Johnson</p>
+                                    <span class="reviews__user-role">House Renovation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__review swiper-slide">
+                        <div class="reviews__review-text">
+                            <p class="reviews__review-title">Exceptional Workmanship!</p>
+                            <span class="reviews__review-description">
+                            “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release”.
+                        </span>
+                        </div>
+                        <div class="reviews__review-bottom">
+                            <div class="reviews__user">
+                                <img src="/client-4.png" class="reviews__user-avatar" alt="client" />
+                                <div class="reviews__user-info">
+                                    <p class="reviews__user-name">Sarah Johnson</p>
+                                    <span class="reviews__user-role">House Renovation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__actions">
+                    <button class="reviews__action"></button>
+                    <button class="reviews__action"></button>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<script>
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
+
+const swiper = new Swiper(".swiper", {
+    modules: [Navigation],
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: "60px",
+    navigation: {
+        nextEl: ".reviews__action:last-child",
+        prevEl: ".reviews__action:first-child",
+    },
+});
+
+function updateClients(activeIndex: number) {
+    const clients = document.querySelectorAll("[data-client]");
+
+    clients.forEach(client => {
+        const clientId = Number(client.getAttribute("data-client"));
+        client.classList.remove("active");
+
+        if (clientId === activeIndex + 1) {
+            client.classList.add("active");
+        }
+    })
+}
+
+updateClients(swiper.activeIndex);
+swiper.on("slideChange", e => updateClients(e.activeIndex))
+</script>
+
+
+<style>
+    .reviews {
+        padding-block: var(--section-py);
+    }
+
+    .swiper-slide {
+        width: 75%;
+    }
+
+    .gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 20;
+
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        width: 150px;
+        height: 100%;
+    }
+
+    .gradient.right {
+        left: inherit;
+        right: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+
+    .reviews__action svg {
+        display: none;
+    }
+
+    .reviews__inner {
+        display: flex;
+        gap: 60px;
+    }
+
+    .reviews__left {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        min-width: 482px;
+    }
+
+    .reviews__clients-group {
+        display: flex;
+        flex-direction: column;
+        gap: 37px;
+    }
+
+    .reviews__clients {
+        display: flex;
+        align-items: center;
+        height: 109px;
+    }
+
+    .reviews__client {
+        border-radius: 50%;
+        transition: .3s ease;
+    }
+
+    .reviews__client {
+        margin-left: -15px;
+        outline: 13px solid #FFF;
+    }
+
+    .reviews__client.active {
+        outline-width: 6px;
+        border: 6px solid var(--primary-color);
+        z-index: 20;
+    }
+
+    .reviews__clients-count {
+        color: var(--primary-color);
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 145%;
+    }
+
+    .reviews__title {
+        text-align: left;
+    }
+
+    .reviews__right {
+        position: relative;
+    }
+
+    .reviews__review {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+    }
+
+    .reviews__review-text {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .reviews__review-title {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    .reviews__review-description {
+        color: var(--subtitle-color);
+    }
+
+    .reviews__review-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .reviews__user {
+        display: flex;
+        align-items: center;
+        gap: 19px;
+    }
+
+    .reviews__user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .reviews__user-avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+    }
+
+    .reviews__user-name {
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .reviews__user-role {
+        color: var(--subtitle-color);
+    }
+
+    .reviews__actions {
+        position: absolute;
+        right: 100px;
+        bottom: 12px;
+        z-index: 20;
+
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .swiper-button-next::after {
+        display: none !important;
+    }
+
+    .reviews__action {
+        background-color: var(--primary-color);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transition: .2s ease;
+    }
+
+    .reviews__action:first-child {
+        background-image: url("/arrow-left.svg");
+    }
+
+    .reviews__action:last-child {
+        background-image: url("/arrow-right.svg");
+    }
+
+    .reviews__action:hover {
+        background-color: var(--primary-color-hover);
+    }
+
+    .reviews__action:active {
+        background-color: var(--primary-color-active);
+    }
+</style>

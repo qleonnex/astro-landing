@@ -1,0 +1,171 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+      <meta name="generator" content={Astro.generator} />
+      <title>{title}</title>
+   </head>
+   <body>
+      <slot />
+   </body>
+</html>
+
+<style is:global>
+   :root {
+      --primary-color: #136EF6;
+      --primary-color-hover: #2775F3;
+      --primary-color-active: #1D6DEC;
+      --subtitle-color: #666666;
+      --divider-color: #D9D9D9;
+      --bg-second-color: #F3F3F3;
+      --section-py: 140px;
+   }
+
+   /* Reset and base styles  */
+   * {
+      padding: 0px;
+      margin: 0px;
+      border: none;
+   }
+
+   *,
+   *::before,
+   *::after {
+      box-sizing: border-box;
+   }
+
+   body {
+      color: #1D1D1D;
+      font-family: "Onest", sans-serif;
+      font-size: 19px;
+      line-height: 145%;
+   }
+
+   .title {
+      font-size: 56px;
+      font-weight: 600;
+      text-align: center;
+   }
+
+   .title > span {
+      color: var(--primary-color);
+   }
+
+   /* Links */
+
+   a,
+   a:link,
+   a:visited {
+      text-decoration: none;
+   }
+
+   a:hover {
+      text-decoration: none;
+   }
+
+   /* Common */
+
+   aside,
+   nav,
+   footer,
+   header,
+   section,
+   main {
+      display: block;
+   }
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p {
+      font-size: inherit;
+      font-weight: inherit;
+   }
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      line-height: 105%;
+      letter-spacing: -2%;
+   }
+
+   ul,
+   ul li {
+      list-style: none;
+   }
+
+   img {
+      vertical-align: top;
+   }
+
+   img,
+   svg {
+      max-width: 100%;
+      height: auto;
+   }
+
+   address {
+      font-style: normal;
+   }
+
+   /* Form */
+
+   input,
+   textarea,
+   button,
+   select {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      background-color: transparent;
+   }
+
+   input::-ms-clear {
+      display: none;
+   }
+
+   textarea {
+      resize: vertical;
+   }
+
+   button,
+   input[type="submit"] {
+      display: inline-block;
+      box-shadow: none;
+      background-color: transparent;
+      background: none;
+      cursor: pointer;
+   }
+
+   button::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+   }
+
+   label {
+      cursor: pointer;
+   }
+
+   legend {
+      display: block;
+   }
+
+   input[type="file"] {
+      max-width: 100%;
+   }
+</style>

@@ -1,0 +1,141 @@
+---
+const PROJECTS = {
+    top: [
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=2167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?q=80&w=1152&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+    ],
+    bottom: [
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=2167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?q=80&w=1152&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ]
+}
+---
+
+<section class="projects">
+    <div class="projects__band" data-js-band-top>
+        {PROJECTS.top.map((project, i) => (
+            <div class="projects__img-wrapper">
+                <img class="projects__img" src={project} alt={`project image ${i}`}>
+            </div>
+        ))}
+    </div>
+    <div class="projects__band" data-js-band-bottom>
+        {PROJECTS.bottom.reverse().map((project, i) => (
+            <div class="projects__img-wrapper">
+                <img class="projects__img" src={project} alt={`project image ${i}`}>
+            </div>
+        ))}
+    </div>
+</section>
+
+<script>
+    const bandTop = document.querySelector<HTMLElement>("[data-js-band-top]");
+    const bandBottom = document.querySelector<HTMLElement>("[data-js-band-bottom]");
+
+    function handleTwistBand(el: HTMLElement | null, speed: number) {
+        if (!el) return;
+
+        let x = 0;
+        let currentSpeed = speed;
+        let lastTime = performance.now();
+
+        const animate = (time: number) => {
+            const delta = time - lastTime;
+            lastTime = time;
+            x += currentSpeed * delta * 0.06;
+
+            const lastChild = el.lastElementChild as HTMLElement;
+
+            if (speed >= 1 && lastChild) {
+                const rect = lastChild.getBoundingClientRect();
+
+                if (rect.left > window.innerWidth) {
+                    el.prepend(lastChild);
+                    x -= rect.width + 15;
+                }
+            }
+
+            const firstChild = el.firstElementChild as HTMLElement;
+
+            if (speed < 1 && lastChild) {
+                const rect = firstChild.getBoundingClientRect();
+
+                if (rect.right < 0) {
+                    el.appendChild(firstChild);
+                    x += rect.width + 15;
+                }
+            }
+
+            el.style.transform = `translateX(${x}px)`;
+            requestAnimationFrame(animate);
+        };
+
+        el.addEventListener("mouseenter", () => {
+            currentSpeed = 0;
+        });
+
+        el.addEventListener("mouseleave", () => {
+            currentSpeed = speed;
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+
+    handleTwistBand(bandTop, 1);
+    handleTwistBand(bandBottom, -1);
+</script>
+
+<style>
+    .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+    }
+
+    .projects__band {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .projects__band:last-child {
+        justify-content: left;
+    }
+
+    .projects__img-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-width: 413px;
+        height: 292px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .projects__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>

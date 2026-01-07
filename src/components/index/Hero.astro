@@ -1,0 +1,70 @@
+---
+import Container from "../ui/Container.astro";
+import Header from "../ui/Header.astro";
+import Link from "../ui/Link.astro";
+---
+
+<section class="hero">
+    <Container>
+        <Header />
+        <div class="hero__inner">
+            <div class="hero__inner-left">
+                <div class="hero__text">
+                    <h1>Crafting Vision with Precision Building Dream Home.</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                </div>
+                <div class="hero__actions">
+                    <Link hasIcon href="#!">
+                        Book a Meeting
+                    </Link>
+                    <Link variant="outline" color="secondary" href="#!">
+                        Learn More
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<style>
+    .hero {
+        background-image: url("/bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+
+        max-width: 100%;
+        border-radius: 20px;
+        margin: 16px;
+        padding-top: 19px;
+    }
+
+    .hero__inner {
+        max-width: 684px;
+        padding-top: 122px;
+        padding-bottom: 264px;
+
+        color: #FFF;
+    }
+
+    .hero__inner-left {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .hero__text h1 {
+        font-size: 75px;
+        font-weight: 600;
+    }
+
+    .hero__text p {
+        color: rgba(255, 255, 255, .8);
+        font-size: 21px;
+    }
+
+    .hero__actions {
+        display: flex;
+        gap: 17px;
+    }
+</style>
